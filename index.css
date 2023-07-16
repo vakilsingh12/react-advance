@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  border: 1px solid #000;
+  align-items: center;
+  /* box-shadow: 1px 2px 2px 5px #000; */
+}
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+  gap: 30px;
+}
+.logo {
+  width: 60px;
+  height: 60px;
+}
+/* card css */
+.card {
+  width: 200px;
+  height: 200px;
+  height: auto;
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 1px 1px 3px #3b3838;
+}
+.card > img {
+  width: 100%;
+}
+.resturant-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.search-input, .search-btn{
+  margin-left: 5px;
+  padding: 5px 8px;
+}
