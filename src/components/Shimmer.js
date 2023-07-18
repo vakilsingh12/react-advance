@@ -1,9 +1,15 @@
 import React from "react";
 
-const Shimmer = () => {
+const Shimmer = ({resLength}) => {
   return (
     <>
-      <h1>Shimmer UI Loading...</h1>
+      <div className="resturant-list">
+        {Array(15)
+          .fill()
+          .map((res,index) => (
+            <div className="shimmer-card" key={`shimmer_${index}`}></div>
+          ))}
+      </div>
     </>
   );
 };

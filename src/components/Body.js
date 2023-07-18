@@ -26,7 +26,7 @@ const Body = () => {
   };
   if (!resturants) return null;
   return resturants.length === 0 ? (
-    <Shimmer resturants={resturants} />
+    <Shimmer  />
   ) : (
     <>
       <div className="search-container">

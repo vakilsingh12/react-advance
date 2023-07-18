@@ -36,3 +36,9 @@
   margin-left: 5px;
   padding: 5px 8px;
 }
+.shimmer-card{
+  width: 200px;
+  height: 200px;
+  background: lightgray;
+  margin: 20px;
+}

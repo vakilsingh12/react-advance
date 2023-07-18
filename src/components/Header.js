@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import Logo from '../assets/img/logo.png';
 const Title = () => {
   return (
     <a href="/">
       <img
-        src="https://lh5.googleusercontent.com/p/AF1QipOhHeCaQ6Xb6RVf3R_ZBTbDK4FIug_203rKsHLT"
+        // src="https://lh5.googleusercontent.com/p/AF1QipOhHeCaQ6Xb6RVf3R_ZBTbDK4FIug_203rKsHLT"
+        src={Logo}
         alt="logo"
         className="logo"
       />
