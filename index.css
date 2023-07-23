@@ -32,13 +32,17 @@
   display: flex;
   flex-wrap: wrap;
 }
-.search-input, .search-btn{
+.search-input,
+.search-btn {
   margin-left: 5px;
   padding: 5px 8px;
 }
-.shimmer-card{
+.shimmer-card {
   width: 200px;
   height: 200px;
   background: lightgray;
   margin: 20px;
+}
+.resturant-menu{
+  display: flex;
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { resturantList } from "../constants";
 import Resturantcard from "./Resturantcard";
 import Shimmer from "./Shimmer";
+import {Link} from 'react-router-dom';
 const filterData = (searchText, resturants) => {
   const filterData = resturants.filter((resturant) =>
     resturant?.data?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
@@ -53,7 +54,9 @@ const Body = () => {
       {filterResturants.length==0?<h1>No match Found</h1>:null}
         {filterResturants.map((restaurant) => {
           return (
-            <Resturantcard {...restaurant.data} key={restaurant.data.id} />
+            <React.Fragment key={restaurant.data.id}>
+            <Link to={`/resturant/${restaurant.data.id}`}><Resturantcard {...restaurant.data} /></Link>
+            </React.Fragment>
           );
         })}
       </div>
