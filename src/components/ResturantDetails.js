@@ -12,16 +12,18 @@ const ResturantDetail = () => {
   }, []);
   const getResturantInfo = async () => {
     const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
+      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
     );
-    const json = await data.json();
+    let json = await data.json();
+    // json=JSON.parse(json)
+    console.log(json)
     setResturant(json?.data?.cards[0]?.card?.card?.info);
     setResturantMenu(
       json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
         ?.card?.itemCards
     );
   };
-  return !resturant || !resturantMenu ? (
+  return !resturant && !resturantMenu ? (
     <Shimmer />
   ) : (
     <div className="resturant-menu">
@@ -39,7 +41,7 @@ const ResturantDetail = () => {
       </div>
       <div>
         <h1>Menu</h1>
-        {resturantMenu.map((res, index) => {
+        {resturantMenu?.map((res, index) => {
           let { id, name } = res?.card?.info;
           return (
             <React.Fragment key={id}>

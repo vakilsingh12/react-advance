@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { resturantList } from "../constants";
 import Resturantcard from "./Resturantcard";
 import Shimmer from "./Shimmer";
+import axios from "axios";
 import {Link} from 'react-router-dom';
+import {API_DATA} from './API_DATA';
 const filterData = (searchText, resturants) => {
-  const filterData = resturants.filter((resturant) =>
-    resturant?.data?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
+  const filterDatares = resturants.filter((resturant) =>
+    resturant?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
   );
-  console.log("filterData====", filterData);
-  return filterData;
+  return filterDatares;
 };
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -19,11 +20,12 @@ const Body = () => {
   }, []);
   const getResturant = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.9002695&lng=75.8581159&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setResturants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilterResturants(json?.data?.cards[2]?.data?.data?.cards);
+    console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setResturants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilterResturants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
   if (!resturants) return null;
   return resturants.length === 0 ? (
@@ -50,12 +52,13 @@ const Body = () => {
           Search
         </button>
       </div>
+      {/* {console.log(filterResturants)} */}
       <div className="resturant-list">
       {filterResturants.length==0?<h1>No match Found</h1>:null}
         {filterResturants.map((restaurant) => {
           return (
-            <React.Fragment key={restaurant.data.id}>
-            <Link to={`/resturant/${restaurant.data.id}`}><Resturantcard {...restaurant.data} /></Link>
+            <React.Fragment key={restaurant.info.id}>
+            <Link to={`/resturant/${restaurant.info.id}`}><Resturantcard {...restaurant.info} /></Link>
             </React.Fragment>
           );
         })}
