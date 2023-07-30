@@ -21,6 +21,7 @@ const HeaderComponent = () => {
           </Link>
           <Link to={'/contact'}><li>Contact us</li></Link>
           <Link to={'/cart'}><li>Cart</li></Link>
+          <Link to={'/about/profile'}><li>Profile</li></Link>
         </ul>
       </div>
       {isLoggedIn ? (
