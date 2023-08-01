@@ -5,12 +5,7 @@ import Shimmer from "./Shimmer";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import {API_DATA} from './API_DATA';
-const filterData = (searchText, resturants) => {
-  const filterDatares = resturants.filter((resturant) =>
-    resturant?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
-  );
-  return filterDatares;
-};
+import {filterData} from '../utils/helper'
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [resturants, setResturants] = useState([]);
