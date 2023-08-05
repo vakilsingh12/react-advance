@@ -3,28 +3,21 @@ import { resturantList } from "../constants";
 import Resturantcard from "./Resturantcard";
 import Shimmer from "./Shimmer";
 import axios from "axios";
-import {Link} from 'react-router-dom';
-import {API_DATA} from './API_DATA';
-import {filterData} from '../utils/helper'
+import { Link } from "react-router-dom";
+import { API_DATA } from "./API_DATA";
+import { filterData } from "../utils/helper";
+import { useResturantMain } from "../utils/useResturantMain";
+import useOnline from "../utils/useOnline";
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const [resturants, setResturants] = useState([]);
-  const [filterResturants, setFilterResturants] = useState([]);
-  useEffect(() => {
-    getResturant();
-  }, []);
-  const getResturant = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setResturants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilterResturants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-  };
+  const { resturants, filterResturants } = useResturantMain();
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>🔴 you are offline, please check your internat connection!</h1>;
+  }
   if (!resturants) return null;
   return resturants.length === 0 ? (
-    <Shimmer  />
+    <Shimmer />
   ) : (
     <>
       <div className="search-container">
@@ -49,11 +42,13 @@ const Body = () => {
       </div>
       {/* {console.log(filterResturants)} */}
       <div className="resturant-list">
-      {filterResturants.length==0?<h1>No match Found</h1>:null}
+        {filterResturants.length == 0 ? <h1>No match Found</h1> : null}
         {filterResturants.map((restaurant) => {
           return (
             <React.Fragment key={restaurant.info.id}>
-            <Link to={`/resturant/${restaurant.info.id}`}><Resturantcard {...restaurant.info} /></Link>
+              <Link to={`/resturant/${restaurant.info.id}`}>
+                <Resturantcard {...restaurant.info} />
+              </Link>
             </React.Fragment>
           );
         })}
