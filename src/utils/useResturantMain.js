@@ -3,7 +3,7 @@ import { GET_RESTUARNT } from "../constants";
 
 export const useResturantMain = () => {
   const [resturants, setResturants] = useState([]);
-  const [filterResturants, setFilterResturants] = useState([]);
+  // const [filterResturants, setFilterResturants] = useState([]);
 
   useEffect(() => {
     getResturant();
@@ -15,9 +15,9 @@ export const useResturantMain = () => {
     setResturants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setFilterResturants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    // setFilterResturants(
+    //   json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
   };
-  return { resturants, filterResturants };
+  return { resturants,setResturants };
 };

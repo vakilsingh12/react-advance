@@ -4,31 +4,42 @@ import { Link } from "react-router-dom";
 const Title = () => {
   return (
     <a href="/">
-      <img src={Logo} alt="logo" className="logo" />
+      <img src={Logo} alt="logo" className="h-28 p-2" />
     </a>
   );
 };
 const HeaderComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
-    <div className="header">
+    <div className="flex items-center justify-between bg-pink-50 shadow-lg">
       <Title />
-      <div className="nav-items">
-        <ul>
-          <Link to={'/'}><li>Home</li></Link>
-          <Link to="/about">
-            <li>About Us</li>
+      <div className="">
+        <ul className="flex">
+          <Link to={"/"}>
+            <li className="px-2">Home</li>
           </Link>
-          <Link to={'/contact'}><li>Contact us</li></Link>
-          <Link to={'/cart'}><li>Cart</li></Link>
-          <Link to={'/about/profile'}><li>Profile</li></Link>
+          <Link to="/about">
+            <li className="px-2">About Us</li>
+          </Link>
+          <Link to={"/contact"}>
+            <li className="px-2">Contact us</li>
+          </Link>
+          <Link to={"/cart"}>
+            <li className="px-2">Cart</li>
+          </Link>
+          <Link to={"/about/profile"}>
+            <li className="px-2">Profile</li>
+          </Link>
+          <Link to={"/instamart"}>
+            <li className="px-2">Instamart</li>
+          </Link>
         </ul>
       </div>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logout</button>
       ) : (
         <button onClick={() => setIsLoggedIn(true)}>Login</button>
-      )}
+      )} */}
     </div>
   );
 };

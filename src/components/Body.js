@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { resturantList } from "../constants";
+// import { resturantList } from "../constants";
 import Resturantcard from "./Resturantcard";
 import Shimmer from "./Shimmer";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import { API_DATA } from "./API_DATA";
+// import { API_DATA } from "./API_DATA";
 import { filterData } from "../utils/helper";
 import { useResturantMain } from "../utils/useResturantMain";
 import useOnline from "../utils/useOnline";
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const { resturants, filterResturants } = useResturantMain();
+  const { resturants ,setResturants} = useResturantMain();
   const isOnline = useOnline();
   if (!isOnline) {
     return <h1>🔴 you are offline, please check your internat connection!</h1>;
@@ -20,10 +19,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-5 my-5">
         <input
           type="text"
-          className="search-input"
+          className="border-black"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -31,19 +30,18 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="p-3 m-4 bg-purple-500 text-white"
           onClick={() => {
             const data = filterData(searchText, resturants);
-            setFilterResturants(data);
+            setResturants(data);
           }}
         >
           Search
         </button>
       </div>
-      {/* {console.log(filterResturants)} */}
       <div className="resturant-list">
-        {filterResturants.length == 0 ? <h1>No match Found</h1> : null}
-        {filterResturants.map((restaurant) => {
+        {resturants.length == 0 ? <h1>No match Found</h1> : null}
+        {resturants.map((restaurant) => {
           return (
             <React.Fragment key={restaurant.info.id}>
               <Link to={`/resturant/${restaurant.info.id}`}>
