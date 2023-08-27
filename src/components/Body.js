@@ -15,14 +15,15 @@ const Body = () => {
     return <h1>🔴 you are offline, please check your internat connection!</h1>;
   }
   if (!resturants) return null;
+  console.log(resturants)
   return resturants.length === 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="p-5 my-5">
+      <div className="p-4 my-5">
         <input
           type="text"
-          className="border-black"
+          className="border-2 px-5 py-3 rounded"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -30,7 +31,7 @@ const Body = () => {
           }}
         />
         <button
-          className="p-3 m-4 bg-purple-500 text-white"
+          className="px-5 py-3 m-4 bg-purple-500 text-white rounded"
           onClick={() => {
             const data = filterData(searchText, resturants);
             setResturants(data);
@@ -39,7 +40,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="resturant-list">
+      <div className="flex gap-5 flex-wrap">
         {resturants.length == 0 ? <h1>No match Found</h1> : null}
         {resturants.map((restaurant) => {
           return (
