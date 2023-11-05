@@ -13,7 +13,7 @@ export const useResturantMain = () => {
     const data = await fetch(GET_RESTUARNT);
     const json = await data.json();
     setResturants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     // setFilterResturants(
     //   json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants

@@ -31,7 +31,7 @@ const Body = () => {
           }}
         />
         <button
-          className="px-5 py-3 m-4 bg-purple-500 text-white rounded"
+          className="px-5 py-3 m-4 bg-purple-500 hover:bg-purple-700 text-white rounded"
           onClick={() => {
             const data = filterData(searchText, resturants);
             setResturants(data);

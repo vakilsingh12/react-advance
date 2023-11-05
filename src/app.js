@@ -1,5 +1,6 @@
 import React, { lazy,Suspense } from "react";
 import ReactDOM from "react-dom/client";
+import '../index.css';
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
@@ -12,7 +13,6 @@ import Profile from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
 // import Instamart from "./components/Instamart";
 const Instamart = lazy(() => import("./components/Instamart"));
-import '../index.css';
 const AppLayout = () => {
   return (
     <React.Fragment>

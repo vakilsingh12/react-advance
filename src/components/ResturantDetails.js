@@ -11,18 +11,22 @@ const ResturantDetail = () => {
   return !resturant && !resturantMenu ? (
     <Shimmer />
   ) : (
-    <div className="resturant-menu">
-      <div>
-        <h1>Restrunt id : {id}</h1>
-        <h2>{resturant?.name}</h2>
-        <img
-          src={IMG_CDN_URL + resturant?.cloudinaryImageId}
-          alt={resturant.name}
-        />
-        <h3>{resturant?.areaName}</h3>
-        <h3>{resturant?.city}</h3>
-        <h3>{resturant?.avgRating} stars</h3>
-        <h3>{resturant?.costForTwoMessage}</h3>
+    <div className="resturant-menu bg-slate-800">
+      <div className="flex justify-around">
+        {/* <h1>Restrunt id : {id}</h1> */}
+        <div>
+          <h2 className="text-white">{resturant?.name}</h2>
+          <img
+            src={IMG_CDN_URL + resturant?.cloudinaryImageId}
+            alt={resturant.name}
+          />
+        </div>
+        <div className="flex items-start justify-center flex-col text-white">
+          <h3>Resturant name : {resturant?.areaName}</h3>
+          <h3>City : {resturant?.city}</h3>
+          <h3>Rating : {resturant?.avgRating} stars</h3>
+          <h3>Cost : {resturant?.costForTwoMessage}</h3>
+        </div>
       </div>
       <div>
         <h1>Menu</h1>
