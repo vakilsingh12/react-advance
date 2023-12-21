@@ -1,4 +1,4 @@
-import React, { lazy,Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import '../index.css';
 import Header from "./components/Header";
@@ -49,7 +49,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/instamart",
-        element: <Suspense fallback={<Shimmer/>}><Instamart /></Suspense>,
+        element: <Suspense fallback={<Shimmer />}><Instamart /></Suspense>,
       },
     ],
   },
