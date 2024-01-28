@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <h4>Footer</h4>
+    <div className='bg-black py-5 mt-5 absolute b-0 w-full'>
+      <p className='text-lg text-center text-white'>All rights and reserved 2024. Design by Vakil Verma</p>
+    </div>
   )
 }
 

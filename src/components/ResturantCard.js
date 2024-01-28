@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { IMG_CDN_URL } from '../constants';
+import UserContext from '../utils/UserContext';
+
 const Resturantcard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
   // const {cloudinaryImageId,name,cuisines,avgRating}=restaurant.data;
+  const { loggedInuser } = useContext(UserContext);
+  console.log("loggedInuser=====================loggedInuser",loggedInuser)
   return (
     <div className="w-[200px] p-2 m-2 shadow-lg">
       <img
@@ -12,6 +16,7 @@ const Resturantcard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
       <h2 className='font-bold text-xl'>{name}</h2>
       <h3>{cuisines.join(", ")}</h3>
       <h4 className=''>Star {avgRating}</h4>
+      <h1>User : {loggedInuser}</h1>
     </div>
   );
 };

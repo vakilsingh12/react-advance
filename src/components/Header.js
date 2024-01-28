@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 const Title = () => {
   return (
     <a href="/">
@@ -10,6 +11,7 @@ const Title = () => {
 };
 const HeaderComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const userContext = useContext(UserContext);
   return (
     <div className="flex items-center justify-between bg-pink-50 shadow-lg sm:bg-blue-50">
       <Title />
@@ -32,6 +34,9 @@ const HeaderComponent = () => {
           </Link>
           <Link to={"/instamart"}>
             <li className="px-2">Instamart</li>
+          </Link>
+          <Link to={"/instamart"}>
+            <li className="px-2 font-bold">{userContext.loggedInuser}</li>
           </Link>
         </ul>
       </div>

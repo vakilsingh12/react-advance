@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import ItemList from './ItemList'
 
-const ResturantCategory = ({ data }) => {
-    const [acordnActive, setAcordnActive] = useState(false);
-    const activeHandler = () => {
-        setAcordnActive(!acordnActive)
-    }
+const ResturantCategory = ({ data,showItems,itemHandler,dummy }) => {
     return (
         // Accordian Header
         <>
             <div className='w-1/2 mx-auto my-4 bg-gray-50 shadow-lg p-4'>
-                <div className='flex justify-between cursor-pointer' onClick={activeHandler}>
+                <div className='flex justify-between cursor-pointer' onClick={itemHandler}>
                     <span className='font-bold text-lg'>{data.title} ({data.itemCards.length})</span>
-                    {acordnActive ? <span>⬆️</span> : <span>⬇️</span>}
+                    {showItems ? <span>⬆️</span> : <span>⬇️</span>}
                 </div>
-                {acordnActive && <ItemList items={data.itemCards} />}
+                {showItems && <ItemList items={data.itemCards} dummy={dummy}/>}
             </div>
             {/* Accordian body */}
         </>

@@ -1,23 +1,26 @@
 import React from 'react'
 import { IMG_CDN_URL } from '../constants'
 
-const ItemList = ({ items }) => {
-    console.log("items======", items)
+const ItemList = ({ items,dummy }) => {
     return (
         <div>
             {items.map((item) => {
                 return (
-                    <div key={item.card.info.id} className='p-2 m-2  border-b-2 text-left flex justify-between'>      
-                      <div className='w-9/12'>
-                          <div className='py-2'>
-                            <span className='font-medium'>{item.card.info.name}</span>
-                            <span > - ₹ {(item.card.info.price || item.card.info.defaultPrice) / 100}</span>
+                    <div key={item.card.info.id} className='p-2 m-2  border-b-2 text-left flex justify-between'>
+                        <div className='w-9/12'>
+                            <div className='py-2'>
+                            <h1>{dummy}</h1>
+                                <span className='font-medium'>{item.card.info.name}</span>
+                                <span > - ₹ {(item.card.info.price || item.card.info.defaultPrice) / 100}</span>
+                            </div>
+                            <p className='text-xs'>{item.card.info.description}</p>
                         </div>
-                        <p className='text-xs'>{item.card.info.description}</p>
-                      </div>
-                      <div className='w-3/12 p-4'>
-                      <img src={`${IMG_CDN_URL}/${item.card.info.imageId}`} alt="" className='w-40 text-right' />
-                      </div>
+                        <div className='w-3/12 p-4'>
+                            <div className='absolute'>
+                                <button className='p-2 rounded mx-8 bg-white shadow-lg m-auto '> ADD + </button>
+                            </div>
+                            <img src={`${IMG_CDN_URL}/${item.card.info.imageId}`} alt="" className='w-40 text-right' />
+                        </div>
                     </div>
                 )
             })}
