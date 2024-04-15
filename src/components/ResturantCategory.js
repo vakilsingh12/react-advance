@@ -12,7 +12,6 @@ const ResturantCategory = ({ data,showItems,itemHandler,dummy }) => {
                 </div>
                 {showItems && <ItemList items={data.itemCards} dummy={dummy}/>}
             </div>
-            {/* Accordian body */}
         </>
     )
 }

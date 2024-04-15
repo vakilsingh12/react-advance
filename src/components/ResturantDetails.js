@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { IMG_CDN_URL } from "../constants";
+import React, { useState } from "react";
 import Shimmer from "./Shimmer";
 import useResturant from "../utils/useResturant";
 import ResturantCategory from "./ResturantCategory";
@@ -22,7 +21,9 @@ const ResturantDetail = () => {
       {/* categories accordian */}
       {/* ResturantCategory controlled component here */}
       {categories.map((category, index) => {
-        return (<ResturantCategory key={category?.card?.card.title} data={category?.card?.card} showItems={index == item} itemHandler={() => itemHandler(index)} dummy={dummy} />)
+        return (
+          <ResturantCategory key={category?.card?.card.title} data={category?.card?.card} showItems={index == item} itemHandler={() => itemHandler(index)} dummy={dummy} />
+        )
       })}
     </div>
   );

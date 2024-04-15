@@ -3,9 +3,7 @@ import { IMG_CDN_URL } from '../constants';
 import UserContext from '../utils/UserContext';
 
 const Resturantcard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
-  // const {cloudinaryImageId,name,cuisines,avgRating}=restaurant.data;
   const { loggedInuser } = useContext(UserContext);
-  console.log("loggedInuser=====================loggedInuser",loggedInuser)
   return (
     <div className="w-[200px] p-2 m-2 shadow-lg">
       <img

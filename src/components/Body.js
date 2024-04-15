@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-// import { resturantList } from "../constants";
+import React, { useState, useContext } from "react";
 import Resturantcard, { WithPromotedLabel } from "./Resturantcard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-// import { API_DATA } from "./API_DATA";
 import { filterData } from "../utils/helper";
 import { useResturantMain } from "../utils/useResturantMain";
 import useOnline from "../utils/useOnline";
