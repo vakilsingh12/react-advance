@@ -13,6 +13,9 @@ import Profile from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 // import Instamart from "./components/Instamart";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 const Instamart = lazy(() => import("./components/Instamart"));
 const AppLayout = () => {
   const [userName, setUserName] = useState();
@@ -23,15 +26,17 @@ const AppLayout = () => {
     setUserName(data.name)
   }, [])
   return (
-    <UserContext.Provider value={{ loggedInuser: userName,setUserName }}>
-      <React.Fragment>
-      <UserContext.Provider value={{ loggedInuser: 'Elon Musk' }}>
-        <Header />
-        </UserContext.Provider>
-        <Outlet />
-        <Footer />
-      </React.Fragment>
-     </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{ loggedInuser: userName, setUserName }}>
+        <React.Fragment>
+          <UserContext.Provider value={{ loggedInuser: 'Elon Musk' }}>
+            <Header />
+          </UserContext.Provider>
+          <Outlet />
+          <Footer />
+        </React.Fragment>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -54,6 +59,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path:'/cart',
+        element:<Cart/>
       },
       {
         path: "/resturant/:id",

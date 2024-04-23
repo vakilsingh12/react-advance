@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Title = () => {
   return (
     <a href="/">
@@ -12,6 +13,8 @@ const Title = () => {
 const HeaderComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const userContext = useContext(UserContext);
+  const cartItems = useSelector(store => store.carts.items)
+  console.log("cartItems===========",cartItems);
   return (
     <div className="flex items-center justify-between bg-pink-50 shadow-lg sm:bg-blue-50">
       <Title />
@@ -26,9 +29,6 @@ const HeaderComponent = () => {
           <Link to={"/contact"}>
             <li className="px-2">Contact us</li>
           </Link>
-          <Link to={"/cart"}>
-            <li className="px-2">Cart</li>
-          </Link>
           <Link to={"/about/profile"}>
             <li className="px-2">Profile</li>
           </Link>
@@ -36,7 +36,10 @@ const HeaderComponent = () => {
             <li className="px-2">Instamart</li>
           </Link>
           <Link to={"/instamart"}>
-            <li className="px-2 font-bold">{userContext.loggedInuser}</li>
+            <li className="px-2">{userContext.loggedInuser}</li>
+          </Link>
+          <Link to={"/cart"}>
+            <li className="font-bold pr-5">Cart {cartItems.length} items</li>
           </Link>
         </ul>
       </div>
