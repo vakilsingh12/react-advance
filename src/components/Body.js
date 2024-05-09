@@ -23,6 +23,7 @@ const Body = () => {
       <div className="flex">
         <div className="p-4 my-5">
           <input
+            data-testid="search-input"
             type="text"
             className="border-2 px-5 py-3 rounded focus:bg-slate-200"
             placeholder="Search"
@@ -32,6 +33,7 @@ const Body = () => {
             }}
           />
           <button
+            data-testid="search-btn"
             className="px-5 py-3 m-4 bg-purple-500 hover:bg-purple-700 text-white rounded"
             onClick={() => {
               const data = filterData(searchText, resturants);
@@ -49,7 +51,7 @@ const Body = () => {
           <input type="text" className="border border-black rounded px-2 py-1" onChange={(e) => setUserName(e.target.value)} />
         </div>
       </div>
-      <div className="flex gap-5 flex-wrap">
+      <div className="flex gap-5 flex-wrap" data-testid="res-list">
         {resturants.length == 0 ? <h1>No match Found</h1> : null}
         {resturants.map((restaurant) => {
           return (

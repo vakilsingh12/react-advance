@@ -12,7 +12,7 @@ const ItemList = ({ items, dummy }) => {
         <div>
             {items.map((item) => {
                 return (
-                    <div key={item.card.info.id} className='p-2 m-2  border-b-2 text-left flex justify-between'>
+                    <div key={item.card.info.id} className='p-2 m-2  border-b-2 text-left flex justify-between' data-testid="menu">
                         <div className='w-9/12'>
                             <div className='py-2'>
                                 <h1>{dummy}</h1>
@@ -23,7 +23,7 @@ const ItemList = ({ items, dummy }) => {
                         </div>
                         <div className='w-3/12 p-4'>
                             <div className='absolute'>
-                                <button className='p-2 rounded mx-8 bg-white shadow-lg m-auto ' onClick={() => addItemHandler(item.card.info)}> ADD + </button>
+                                <button className='p-2 rounded mx-8 bg-white shadow-lg m-auto ' onClick={() => addItemHandler(item.card.info)} data-testid="add-btn"> ADD + </button>
                             </div>
                             <img src={`${IMG_CDN_URL}/${item.card.info.imageId}`} alt="" className='w-40 text-right' />
                         </div>
