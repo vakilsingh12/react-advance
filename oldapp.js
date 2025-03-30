@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+// import React from "react";
+// import ReactDOM from "react-dom/client";
 // const heading = React.createElement("h1", { id: "title",key:"h1" }, "Hello world");
 // const heading1 = React.createElement("h1", { id: "title",key:"h2" }, "Hello world2");
 // const container = React.createElement("div", { id: "title" }, [
 //   heading,
 //   heading1,
 // ]); 
-import { IMG_CDN_URL } from "./constants";
-import Header from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
+// import { IMG_CDN_URL } from "./constants";
+// import Header from "./components/Header";
+// import Body from "./components/Body";
+// import Footer from "./components/Footer";
 // const config = [
 //   {
 //     type: "carousel",
@@ -44,14 +44,14 @@ import Footer from "./components/Footer";
 //     </div>
 //   );
 // };
-const AppLayout = () => {
-  return (
-    <React.Fragment>
-      <Header />
-      <Body />
-      <Footer />
-    </React.Fragment>
-  );
-};
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+// const AppLayout = () => {
+//   return (
+//     <React.Fragment>
+//       <Header />
+//       <Body />
+//       <Footer />
+//     </React.Fragment>
+//   );
+// };
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<AppLayout />);
